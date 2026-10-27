@@ -1,0 +1,19 @@
+id;acteur;categorie;puissance_kW;prix_EUR_MWh;9h-10h;10h-11h;heures_activees;cout_EUR;retenue
+O04;Automobile – Rue Dos Santos;Industrie;110;85;110;110;2;18.7;True
+O10;Action sociale – 4 Rue Louis Bleriot;Tertiaire;20;85;0;20;1;1.7;True
+O11;Administration – Rue Bernard Palissy;Tertiaire;20;100;20;0;1;2.0;True
+O08;Commerce de détail – Lieu Dit Le Portail Rouge Nord;Tertiaire;65;105;65;65;2;13.6;True
+O02;Produits métalliques – Rue Ferron Alias Colonel Gilles;Industrie;155;115;155;0;1;17.8;True
+O03;Produits métalliques – Rue Maryse Bastie;Industrie;150;125;150;150;2;37.5;True
+O07;Énergie – Zone Industrielle Du Sanital;Industrie;100;130;100;100;2;26.0;True
+O09;Restauration – Espace D'Argenson;Tertiaire;25;135;0;25;1;3.4;True
+O06;Habillement – Rue Santos Dumont;Industrie;100;140;0;100;1;14.0;True
+O12;Immobilier – 12 Avenue Alfred Nobel;Tertiaire;20;160;0;20;1;3.2;True
+O01;Maintenance industrielle – 1 Rue Maryse Bastie;Industrie;300;135;0;0;0;0.0;False
+O05;Automobile – Lieu Dit Le Portail Rouge Nord;Industrie;100;145;0;0;0;0.0;False
+O15;Bornes publiques Espace d'Argenson;VE;80;150;0;0;0;0.0;False
+O18;Stockage mutualisé ZA (projet);Batterie;60;180;0;0;0;0.0;False
+O16;Batterie couplée PV toiture industrielle;Batterie;85;205;0;0;0;0.0;False
+O13;Bornes salariés ZA (charge pilotée);VE;105;210;0;0;0;0.0;False
+O17;Batterie de site agroalimentaire;Batterie;135;220;0;0;0;0.0;False
+O14;Flotte utilitaires logistique;VE;125;245;0;0;0;0.0;False

@@ -1,0 +1,19 @@
+id;acteur;categorie;puissance_kW;prix_EUR_MWh;duree_min_h;duree_max_h;dispo_debut;dispo_fin;fiabilite;naf2;conso_site_MWh;source
+O01;Maintenance industrielle – 1 Rue Maryse Bastie;Industrie;300;135;1;2;6;22;0.95;33;16698.0;Site réel Enedis 2025
+O02;Produits métalliques – Rue Ferron Alias Colonel Gilles;Industrie;155;115;1;1;6;22;0.95;25;8876.0;Site réel Enedis 2025
+O03;Produits métalliques – Rue Maryse Bastie;Industrie;150;125;1;3;6;22;0.95;25;6736.0;Site réel Enedis 2025
+O04;Automobile – Rue Dos Santos;Industrie;110;85;1;2;6;22;0.95;29;5441.0;Site réel Enedis 2025
+O05;Automobile – Lieu Dit Le Portail Rouge Nord;Industrie;100;145;1;2;6;22;0.95;29;4274.0;Site réel Enedis 2025
+O06;Habillement – Rue Santos Dumont;Industrie;100;140;1;1;6;22;0.95;14;3558.0;Site réel Enedis 2025
+O07;Énergie – Zone Industrielle Du Sanital;Industrie;100;130;1;3;6;22;0.95;35;2791.0;Site réel Enedis 2025
+O08;Commerce de détail – Lieu Dit Le Portail Rouge Nord;Tertiaire;65;105;1;2;8;19;0.9;47;809.0;Site réel Enedis 2025
+O09;Restauration – Espace D'Argenson;Tertiaire;25;135;1;2;8;19;0.9;56;437.0;Site réel Enedis 2025
+O10;Action sociale – 4 Rue Louis Bleriot;Tertiaire;20;85;1;1;8;19;0.9;88;311.0;Site réel Enedis 2025
+O11;Administration – Rue Bernard Palissy;Tertiaire;20;100;1;1;8;19;0.9;84;286.0;Site réel Enedis 2025
+O12;Immobilier – 12 Avenue Alfred Nobel;Tertiaire;20;160;1;2;8;19;0.9;68;234.0;Site réel Enedis 2025
+O13;Bornes salariés ZA (charge pilotée);VE;105;210;1;2;8;18;0.85;;;Synthétique
+O14;Flotte utilitaires logistique;VE;125;245;1;3;18;7;0.85;;;Synthétique
+O15;Bornes publiques Espace d'Argenson;VE;80;150;1;1;7;22;0.85;;;Synthétique
+O16;Batterie couplée PV toiture industrielle;Batterie;85;205;1;1;0;24;0.97;;;Synthétique
+O17;Batterie de site agroalimentaire;Batterie;135;220;1;2;0;24;0.97;;;Synthétique
+O18;Stockage mutualisé ZA (projet);Batterie;60;180;1;2;0;24;0.97;;;Synthétique
