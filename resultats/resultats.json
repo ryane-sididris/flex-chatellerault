@@ -1,0 +1,211 @@
+{
+ "commune_2025_GWh": {
+  "AGRICULTURE": 0.1,
+  "INDUSTRIE": 60.3,
+  "RESIDENTIEL": 56.5,
+  "TERTIAIRE": 82.6
+ },
+ "commune_total_GWh": 199.5,
+ "za_GWh": 79.9,
+ "za_part_commune_pct": 40.0,
+ "za_energies_MWh": {
+  "hta": 77593,
+  "pro": 2077,
+  "residentiel": 189,
+  "total": 79859
+ },
+ "za_nb_sites_ent": 94,
+ "za_top10_part_pct": 69.9,
+ "pointe_kW": 13217,
+ "creux_kW": 8795,
+ "fenetre": "9h-11h",
+ "capacite_kW": 13217,
+ "besoin_kW": 550.0,
+ "selection": {
+  "mo": {
+   "methode": "Préséance économique",
+   "statut": "OK",
+   "P_min_mobilisee_kW": 620.0,
+   "P_max_mobilisee_kW": 725.0,
+   "P_par_heure": {
+    "9": 620.0,
+    "10": 725.0
+   },
+   "energie_MWh": 1.345,
+   "cout_total_EUR": 157.875,
+   "cout_moyen_EUR_MWh": 117.37918215613384,
+   "marge_vs_depassement_kW": 120.0,
+   "marge_vs_depassement_pct": 24.0,
+   "surplus_vs_besoin_kW": 70.0,
+   "nb_retenues": 8,
+   "retenues": [
+    "O01",
+    "O02",
+    "O03",
+    "O04",
+    "O07",
+    "O08",
+    "O10",
+    "O11"
+   ],
+   "non_retenues": [
+    "O05",
+    "O06",
+    "O09",
+    "O12",
+    "O13",
+    "O14",
+    "O15",
+    "O16",
+    "O17",
+    "O18"
+   ],
+   "notes": [],
+   "proba_couverture": 0.8375,
+   "P_livree_moy_kW": 574.21925,
+   "P_livree_p5_kW": 425.0
+  },
+  "or": {
+   "methode": "Optimisation OR-Tools",
+   "statut": "OPTIMAL",
+   "P_min_mobilisee_kW": 550.0,
+   "P_max_mobilisee_kW": 555.0,
+   "P_par_heure": {
+    "9": 555.0,
+    "10": 550.0
+   },
+   "energie_MWh": 1.105,
+   "cout_total_EUR": 127.925,
+   "cout_moyen_EUR_MWh": 115.76923076923077,
+   "marge_vs_depassement_kW": 50.0,
+   "marge_vs_depassement_pct": 10.0,
+   "surplus_vs_besoin_kW": 0.0,
+   "nb_retenues": 9,
+   "retenues": [
+    "O02",
+    "O03",
+    "O04",
+    "O06",
+    "O07",
+    "O08",
+    "O09",
+    "O10",
+    "O11"
+   ],
+   "non_retenues": [
+    "O01",
+    "O05",
+    "O12",
+    "O13",
+    "O14",
+    "O15",
+    "O16",
+    "O17",
+    "O18"
+   ],
+   "notes": [],
+   "proba_couverture": 0.6963,
+   "P_livree_moy_kW": 508.3555,
+   "P_livree_p5_kW": 385.0
+  },
+  "og": {
+   "methode": "OR-Tools (puissance garantie)",
+   "statut": "OPTIMAL",
+   "P_min_mobilisee_kW": 590.0,
+   "P_max_mobilisee_kW": 600.0,
+   "P_par_heure": {
+    "9": 600.0,
+    "10": 590.0
+   },
+   "energie_MWh": 1.19,
+   "cout_total_EUR": 137.95,
+   "cout_moyen_EUR_MWh": 115.92436974789915,
+   "marge_vs_depassement_kW": 90.0,
+   "marge_vs_depassement_pct": 18.0,
+   "surplus_vs_besoin_kW": 40.0,
+   "nb_retenues": 10,
+   "retenues": [
+    "O02",
+    "O03",
+    "O04",
+    "O06",
+    "O07",
+    "O08",
+    "O09",
+    "O10",
+    "O11",
+    "O12"
+   ],
+   "non_retenues": [
+    "O01",
+    "O05",
+    "O13",
+    "O14",
+    "O15",
+    "O16",
+    "O17",
+    "O18"
+   ],
+   "notes": [],
+   "proba_couverture": 0.76865,
+   "P_livree_moy_kW": 546.19125,
+   "P_livree_p5_kW": 425.0
+  }
+ },
+ "gisement_kW_fenetre": 1630,
+ "gisement_kW_total": 1755,
+ "sensibilite_marge": [
+  {
+   "marge_pct": 0.0,
+   "cout_EUR": 114.15,
+   "proba_couverture": 0.482
+  },
+  {
+   "marge_pct": 5.0,
+   "cout_EUR": 119.75,
+   "proba_couverture": 0.617
+  },
+  {
+   "marge_pct": 10.0,
+   "cout_EUR": 127.925,
+   "proba_couverture": 0.696
+  },
+  {
+   "marge_pct": 15.0,
+   "cout_EUR": 134.575,
+   "proba_couverture": 0.768
+  },
+  {
+   "marge_pct": 20.0,
+   "cout_EUR": 140.5,
+   "proba_couverture": 0.802
+  },
+  {
+   "marge_pct": 30.0,
+   "cout_EUR": 154.825,
+   "proba_couverture": 0.897
+  }
+ ],
+ "benchmark": {
+  "n": 200,
+  "or_faisable": 200,
+  "mo_ok": 200,
+  "surcout_moyen_pct": 14.1,
+  "surcout_median_pct": 12.0,
+  "surcout_max_pct": 69.1,
+  "egalite_pct": 12.0,
+  "surplus_mo_moy": 58,
+  "surplus_or_moy": 10
+ },
+ "renfo": {
+  "capex_bas": 338100,
+  "capex_ref": 759000,
+  "capex_haut": 1485800,
+  "annuite_ref": 44233,
+  "flex_an_20evts": 7759,
+  "seuil_evts": 284,
+  "gain_report_5ans": 164304,
+  "cout_flex_5ans": 33592,
+  "cout_evenement": 137.9
+ }
+}
