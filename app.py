@@ -21,7 +21,8 @@ TAUX, VIE, FIXES = 0.05, 40, 5000  # hypothèses fixes, détaillées dans le rap
 SRC_IRIS = "Enedis Open Data, « Consommation électrique par secteur d'activité à la maille IRIS », année 2025"
 SRC_ADR = "Enedis Open Data, « Consommation annuelle d'électricité des entreprises par adresse », année 2025"
 SRC_POSTES = "Enedis Open Data, « Postes électriques HTA/BT »"
-SRC_COURBE = "Enedis Open Data, « Puissances électriques au pas 15 minutes », journée du 20 janvier 2026"
+SRC_HTA = "Enedis Open Data, « Réseau HTA aérien » et « Réseau HTA souterrain »"
+SRC_COURBE ="Enedis Open Data, « Puissances électriques au pas 15 minutes », journée du 20 janvier 2026"
 SRC_AO = "Enedis, appel d'offres « Flexibilités locales » du 1er semestre 2026"
 SRC_CRE = "Barème de raccordement Enedis approuvé par la CRE (délibération n° 2026-160)"
 
@@ -61,10 +62,11 @@ def style(fig, titre, h=420):
 
 @st.cache_data
 def donnees():
-    return fc.load_postes(), fc.load_conso_iris(), fc.load_sites_za(), fc.profil_zone(), fc.profil_zone(pas="15")
+    return (fc.load_postes(), fc.load_conso_iris(), fc.load_sites_za(), fc.profil_zone(), fc.profil_zone(pas="15"),
+            fc.load_reseau_hta())
 
 
-postes, iris, sites, prof, prof15 = donnees()
+postes, iris, sites, prof, prof15, reseau = donnees()
 pointe_auto = fc.fenetre_pointe(prof)
 
 # ------------------------------------------------------------------ Réglages
@@ -125,16 +127,26 @@ with T[0]:
         st.plotly_chart(style(fig, "Consommation par quartier", 500), use_container_width=True)
         source(SRC_IRIS)
     with b:
-        pz = postes.assign(Zone=postes.zone_indus.map({True: "Zone Sanital", False: "Reste de la ville"}))
+        pz = postes[postes.nom_commune == "Châtellerault"].assign(Zone=postes.zone_indus.map({True: "Zone Sanital", False: "Reste de la ville"}))
         fig = px.scatter_map(pz, lat="lat", lon="lon", color="Zone", hover_name="nom_iris", zoom=11.3,
                              center=dict(lat=46.82, lon=0.55), hover_data={"lat": False, "lon": False, "Zone": False},
                              color_discrete_map={"Zone Sanital": "#e34948", "Reste de la ville": "#1f4fd1"})
         fig.update_traces(marker=dict(size=7))
+        if reseau:
+            lon, lat = [], []
+            for ligne in reseau:
+                lon += [c[0] for c in ligne["coords"]] + [None]
+                lat += [c[1] for c in ligne["coords"]] + [None]
+            fig.add_scattermap(lon=lon, lat=lat, mode="lines", line=dict(width=2, color="#222222"),
+                               name="Lignes HTA (moyenne tension)", hoverinfo="skip")
+            fig.data = fig.data[-1:] + fig.data[:-1]  # lignes sous les postes
         fig.update_layout(map_style="open-street-map", height=500, margin=dict(l=0, r=0, t=60, b=0),
-                          title=dict(text="Postes électriques de la ville", font=dict(size=17)),
+                          title=dict(text="Réseau HTA et postes électriques de la ville", font=dict(size=17)),
                           legend=dict(y=.02, x=.01, title=None, bgcolor="rgba(255,255,255,.85)"))
         st.plotly_chart(fig, use_container_width=True)
-        source(SRC_POSTES)
+        source(SRC_POSTES + " ; " + SRC_HTA)
+        st.caption("Le trait noir montre où passent les câbles HTA d'Enedis. Enedis ne publie pas leur capacité : "
+                   "la saturation étudiée reste une hypothèse.")
     with st.expander("Voir la liste des entreprises de la zone"):
         s = sites.assign(Activité=sites.naf2.map(fc.NAF).fillna(sites.naf2)).sort_values("conso_MWh", ascending=False)
         s = s.rename(columns={"adresse": "Adresse", "conso_MWh": "Consommation 2025 (MWh)"})

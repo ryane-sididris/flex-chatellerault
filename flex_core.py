@@ -46,6 +46,15 @@ def load_postes(path: Path = DATA / "postes.csv") -> pd.DataFrame:
     return df
 
 
+def load_reseau_hta(path: Path = DATA / "reseau_hta.json") -> list[dict]:
+    """Lignes HTA (aériennes et souterraines) de Châtellerault – Enedis Open Data.
+    Chaque ligne : type ('aerien' / 'souterrain'), zone_indus (bool), coords [[lon, lat], ...]."""
+    import json
+    if not path.exists():
+        return []
+    return json.loads(path.read_text())
+
+
 def load_conso_iris() -> pd.DataFrame:
     """Consommation 2025 par IRIS et grand secteur (Enedis)."""
     return pd.read_csv(DATA / "conso_iris_2025.csv", sep=";", dtype={"code_iris": str})
